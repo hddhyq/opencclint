@@ -9,6 +9,10 @@
   "scripts": {
     "lint": "eslint src --fix"
   },
+  "repository": {
+      "type" : "git",
+      "url" : "https://github.com/hddhyq/opencclint.git"
+  },
   "keywords": [
     "opencclint",
     "lint",
