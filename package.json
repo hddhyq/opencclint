@@ -1,6 +1,6 @@
 {
   "name": "opencclint",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "opencclint for project",
   "main": "./src/cli.js",
   "bin": {
