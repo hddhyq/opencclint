@@ -2,8 +2,8 @@
 用于项目中文件繁简体检查。
 
 ### features
-* 支持 vue，js，ts, css，stylus, pug 文件，适配 Vue 项目。
-* 依托于[opencc](https://www.npmjs.com/package/opencc)库，完美兼容多种繁简体检查。
+* 支持 vue，js，ts，css，stylus，pug 文件，适配 Vue 项目。
+* 依托于 [opencc](https://www.npmjs.com/package/opencc) 库，完美兼容多种繁简体检查。
 * 支持配置项目中已有单个文字忽略。
 * 支持文件级别的忽略检查。
 
@@ -37,7 +37,7 @@ opancclint ./test
 
 ```js
 {
-    translation: "simplifiedToTaiwan", // 配置简体转换台湾字体
+    translation: "s2t", // 配置简体转换台湾字体，可参考 opencc 文档
     ignoreTexts: { // 配置忽略的单个文字
         台: "臺",
         裏: "裡",
@@ -65,4 +65,12 @@ opancclint ./test
 ### css stylus 文件
 ```css
 /* simplify ignore */
+```
+
+## pug 文件注意
+pug文件使用了，pug-compiler，会忽略 `//-` 注释。
+
+```pug
+//-
+//
 ```

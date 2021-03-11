@@ -3,6 +3,9 @@ function onFatalError(error) {
   process.exitCode = 2;
   const { version } = require("../package.json");
 
+  // 有错误，清除loading
+  if (loading) clearInterval(loading); // eslint-disable-line
+
   console.error(`
 Oops! Something went wrong! :(
 
@@ -11,12 +14,10 @@ opencclint: ${version}
 ${error}`);
 }
 
-// (async function main() {
-//   process.on("uncaughtException", onFatalError);
-//   process.on("unhandledRejection", onFatalError);
+(async function main() {
+  process.on("uncaughtException", onFatalError);
+  process.on("unhandledRejection", onFatalError);
 
-//   // Otherwise, call the CLI.
-//   process.exitCode = await require("../lib/cli").execute();
-// })().catch(onFatalError);
-
-require("../lib/cli").execute();
+  // Otherwise, call the CLI.
+  process.exitCode = await require("../lib/cli").execute();
+})().catch(onFatalError);
