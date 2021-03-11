@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+function onFatalError(error) {
+  process.exitCode = 2;
+  const { version } = require("../package.json");
+
+  console.error(`
+Oops! Something went wrong! :(
+
+opencclint: ${version}
+
+${error}`);
+}
+
+// (async function main() {
+//   process.on("uncaughtException", onFatalError);
+//   process.on("unhandledRejection", onFatalError);
+
+//   // Otherwise, call the CLI.
+//   process.exitCode = await require("../lib/cli").execute();
+// })().catch(onFatalError);
+
+require("../lib/cli").execute();
