@@ -20,17 +20,26 @@
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.2.1"
-  },
-  "dependencies": {
-    "@vue/component-compiler-utils": "^3.2.0",
+    "@vue/component-compiler-utils": "^2.6.0",
+    "vue-template-compiler": "^2.6.0",
+    "prettier": "^2.2.1",
     "colors": "^1.4.0",
     "diff": "^5.0.0",
     "glob": "^7.1.6",
     "js-cleanup": "^1.2.0",
     "minimist": "^1.2.5",
-    "opencc": "^1.1.2",
-    "pug": "^3.0.2",
-    "vue-template-compiler": "^2.6.12"
+    "pug": "^2.0.3"
+  },
+  "dependencies": {
+    "opencc": "^1.1.2"
+  },
+  "peerDependencies": {
+    "@vue/component-compiler-utils": "^2.6.0",
+    "vue-template-compiler": "^2.6.0",
+    "pug": "^2.0.0 || ^3.0.0",
+    "diff": "^5.0.0",
+    "glob": "^7.0.0",
+    "minimist": "^1.2.0",
+    "colors": "^1.2.0"
   }
 }
