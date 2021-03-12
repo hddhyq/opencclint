@@ -6,6 +6,7 @@
 * 依托于 [opencc](https://www.npmjs.com/package/opencc) 库，完美兼容多种繁简体检查。
 * 支持配置项目中已有单个文字忽略。
 * 支持文件级别的忽略检查。
+* 支持嵌入 lint-staged 使用。
 
 ## 安装
 ```shell
@@ -32,17 +33,34 @@ opancclint ./test
 
 ### simplify.config.js 配置文件
 
-* translation，
-* ignoreTexts，
+* translation，配置简体转换台湾字体，可参考 opencc 文档。
+* ignoreTexts，配置忽略的单个或多个文字。
 
 ```js
 {
-    translation: "s2t", // 配置简体转换台湾字体，可参考 opencc 文档
-    ignoreTexts: { // 配置忽略的单个文字
+    translation: "s2t",
+    ignoreTexts: {
         台: "臺",
         裏: "裡",
+        收佣: "收傭"
     }
 }
+```
+
+### 结合 lint-staged 使用
+
+```json
+"lint-staged": {
+    "*.{ts,tsx,js,vue}": [
+        "npm run lint",
+        "opencclint",
+        "git add"
+    ],
+    "*.{styl, css}": [
+        "opencclint",
+        "git add"
+    ]
+},
 ```
 
 ## 忽略文件
@@ -67,10 +85,7 @@ opancclint ./test
 /* simplify ignore */
 ```
 
-## pug 文件注意
-pug文件使用了，pug-compiler，会忽略 `//-` 注释。
+## 注意点
 
-```pug
-//-
-//
-```
+### 关于 pug 文件使用
+pug文件使用了，pug-compiler，会忽略 `//-` 注释。`//` 注释默认不忽略。

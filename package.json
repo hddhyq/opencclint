@@ -6,6 +6,12 @@
   "bin": {
     "opencclint": "./bin/opencclint"
   },
+  "homepage": "https://github.com/hddhyq/opencclint#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hddhyq/opencclint.git"
+  },
+
   "scripts": {
     "lint": "eslint src --fix"
   },
@@ -20,26 +26,22 @@
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
     "@vue/component-compiler-utils": "^2.6.0",
     "vue-template-compiler": "^2.6.0",
-    "prettier": "^2.2.1",
+    "pug": "^2.0.3"
+  },
+  "dependencies": {
+    "opencc": "^1.1.2",
     "colors": "^1.4.0",
     "diff": "^5.0.0",
     "glob": "^7.1.6",
     "js-cleanup": "^1.2.0",
-    "minimist": "^1.2.5",
-    "pug": "^2.0.3"
-  },
-  "dependencies": {
-    "opencc": "^1.1.2"
+    "minimist": "^1.2.5"
   },
   "peerDependencies": {
     "@vue/component-compiler-utils": "^2.6.0",
     "vue-template-compiler": "^2.6.0",
-    "pug": "^2.0.0 || ^3.0.0",
-    "diff": "^5.0.0",
-    "glob": "^7.0.0",
-    "minimist": "^1.2.0",
-    "colors": "^1.2.0"
+    "pug": "^2.0.0 || ^3.0.0"
   }
 }
