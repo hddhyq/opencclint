@@ -1,6 +1,6 @@
 {
   "name": "opencclint",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "opencclint for project",
   "main": "./src/cli.js",
   "bin": {
@@ -11,7 +11,6 @@
     "type": "git",
     "url": "https://github.com/hddhyq/opencclint.git"
   },
-
   "scripts": {
     "lint": "eslint src --fix"
   },
