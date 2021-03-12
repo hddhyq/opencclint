@@ -1,6 +1,6 @@
 {
   "name": "opencclint",
-  "version": "1.2.0",
+  "version": "1.0.1",
   "description": "opencclint for project",
   "main": "./src/cli.js",
   "bin": {
@@ -17,21 +17,12 @@
   "author": "brokenbonesdd@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "@vue/component-compiler-utils": "^3.2.0",
-    "colors": "^1.4.0",
-    "diff": "^5.0.0",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "glob": "^7.1.6",
-    "js-cleanup": "^1.2.0",
-    "minimist": "^1.2.5",
-    "opencc": "^1.1.2",
-    "prettier": "^2.2.1",
-    "pug": "^3.0.2",
-    "vue-template-compiler": "^2.6.12"
+    "prettier": "^2.2.1"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@vue/component-compiler-utils": "^3.2.0",
     "colors": "^1.4.0",
     "diff": "^5.0.0",
