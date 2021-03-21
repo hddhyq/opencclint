@@ -1,5 +1,5 @@
 module.exports = {
-  translation: "s2t",
+  translation: "simplifiedToTaiwan",
   ignoreTexts: {
     台: "臺",
     里: "裡",
