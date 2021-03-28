@@ -38,7 +38,7 @@ opancclint ./test
 
 ```js
 {
-    translation: "s2t",
+    translation: "simplifiedToTaiwan",// 配置简体转换台湾字体
     ignoreTexts: {
         台: "臺",
         裏: "裡",
