@@ -2,13 +2,15 @@
 function onFatalError(error) {
   process.exitCode = 2;
   const { version } = require("../package.json");
-
   console.error(`
 Oops! Something went wrong! :(
 
 opencclint: ${version}
 
-${error}`);
+${error.message}
+
+${error.stack}
+`);
 }
 
 (async function main() {

@@ -1,6 +1,6 @@
 {
   "name": "opencclint",
-  "version": "1.2.5",
+  "version": "1.3.2",
   "description": "opencclint for project",
   "main": "./src/cli.js",
   "bin": {
@@ -28,14 +28,16 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
+    "@vue/compiler-sfc": "^3.0.9",
     "@vue/component-compiler-utils": "^2.6.0",
     "colors": "^1.4.0",
     "diff": "^5.0.0",
     "glob": "^7.1.6",
+    "html-minifier": "^4.0.0",
     "js-cleanup": "^1.2.0",
     "minimist": "^1.2.5",
     "node-opencc": "^2.0.1",
-    "pug": "^2.0.3",
+    "pug": "^3.0.0",
     "vue-template-compiler": "^2.6.0"
   }
 }

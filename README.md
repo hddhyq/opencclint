@@ -19,13 +19,13 @@ npm i opencclint -D
 ## CLI 命令行使用
 ```bash
 # 單文件檢查
-opencclint ./test/test.js
+npx opencclint ./test/test.js
 
 # 多个文件检查
-opencclint "./test/test.js" "./test/test.vue"
+npx opencclint "./test/test.js" "./test/test.vue"
 
 # 文件夾檢查
-opancclint ./test
+npx opancclint ./test
 ```
 ## 项目中使用
 

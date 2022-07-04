@@ -1,4 +1,5 @@
 module.exports = {
+  vue: 3,
   translation: "simplifiedToTaiwan",
   ignoreTexts: {
     台: "臺",
