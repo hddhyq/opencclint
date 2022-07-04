@@ -1,7 +1,9 @@
 ## 介绍
+
 用于项目中文件繁简体检查。
 
 ### features
+
 * 支持 vue，js，ts，css，stylus，pug 文件，适配 Vue 项目。
 * 依托于 [opencc](https://www.npmjs.com/package/opencc) 库，完美兼容多种繁简体检查。
 * 支持配置项目中已有单个文字忽略。
@@ -9,6 +11,7 @@
 * 支持嵌入 lint-staged 使用。
 
 ## 安装
+
 ```shell
 # 全局安装
 npm i opencclint -g
@@ -16,7 +19,9 @@ npm i opencclint -g
 # 项目中安装
 npm i opencclint -D
 ```
+
 ## CLI 命令行使用
+
 ```bash
 # 單文件檢查
 npx opencclint ./test/test.js
@@ -27,17 +32,20 @@ npx opencclint "./test/test.js" "./test/test.vue"
 # 文件夾檢查
 npx opancclint ./test
 ```
+
 ## 项目中使用
 
 项目根目录配置 simplify.config.js 。
 
 ### simplify.config.js 配置文件
 
-* translation，配置简体转换台湾字体，可参考 opencc 文档。
+* translation，配置简体转换台湾字体，可参考 [opencc](https://github.com/BYVoid/OpenCC) 文档。
 * ignoreTexts，配置忽略的单个或多个文字。
+* vue, 配置 vue 版本。
 
 ```js
 {
+    vue: 3, // vue version
     translation: "simplifiedToTaiwan",// 配置简体转换台湾字体
     ignoreTexts: {
         台: "臺",
@@ -48,8 +56,10 @@ npx opancclint ./test
 ```
 
 ### 结合 lint-staged 使用
+下为实例，具体参看 [husky](https://github.com/typicode/husky) 与 lint-staged 文档。（husky 与 lint-staged 版本会有不同使用方法。）
 
 ```json
+// husky ^3.1.0 && lint-staged ^8.1.0
 "lint-staged": {
     "*.{ts,tsx,js,vue}": [
         "npm run lint",
@@ -66,12 +76,15 @@ npx opancclint ./test
 ## 忽略文件
 
 项目中以文件级别，忽略繁简体检查
+
 ### js文件
+
 ```js
 /* simplify ignore */
 ```
 
 ### vue文件
+
 ```html
 ...
 <script>
@@ -81,6 +94,7 @@ npx opancclint ./test
 ```
 
 ### css stylus 文件
+
 ```css
 /* simplify ignore */
 ```
@@ -88,4 +102,5 @@ npx opancclint ./test
 ## 注意点
 
 ### 关于 pug 文件使用
+
 pug文件使用了，pug-compiler，会忽略 `//-` 注释。`//` 注释默认不忽略。
