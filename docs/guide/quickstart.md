@@ -157,3 +157,7 @@ module.exports = {
 ## 结语
 
 通过以上步骤，您已经成功配置了 OpenccLint、husky 和 lint-staged 来自动进行繁简体转换校验。这将帮助您在开发过程中保持代码的一致性和规范性。如果有任何问题或需要进一步的帮助，请参考 OpenccLint 的官方文档。
+
+## demo 参考
+- [opencclint-demo](https://github.com/hddhyq/opencclint-demo)
+- [opencclint-config](https://github.com/hddhyq/opencclint-config)
