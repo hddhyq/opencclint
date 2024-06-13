@@ -1,0 +1,7 @@
+{
+  "extends": ["opencclint-config"],
+  "ignoreWords": ["台", "extendsNested"],
+  "exclude": [
+    "dist"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "ignoreWords": ["台"],
+  "exclude": [
+    "dist"
+  ]
+}

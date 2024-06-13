@@ -1,0 +1,56 @@
+{
+  "name": "@opencclint/cli",
+  "type": "module",
+  "version": "2.0.4",
+  "description": "opencclint in the command line",
+  "author": "brokenbonesdd@gmail.com",
+  "license": "MIT",
+  "homepage": "https://github.com/hddhyq/opencclint#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hddhyq/opencclint.git"
+  },
+  "bugs": "https://github.com/hddhyq/opencclint/issues",
+  "keywords": [
+    "opencclint",
+    "cli"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./cli": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "bin": {
+    "@opencclint/cli": "bin.mjs",
+    "opencclint": "bin.mjs"
+  },
+  "files": [
+    "bin.mjs",
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "start": "esno ./src/index.ts",
+    "prepublishOnly": "nr build"
+  },
+  "dependencies": {
+    "@opencclint/core": "workspace:*",
+    "cac": "^6.7.14",
+    "chalk": "^5.3.0",
+    "execa": "^8.0.1",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "opencclint-config": "^0.0.6"
+  }
+}

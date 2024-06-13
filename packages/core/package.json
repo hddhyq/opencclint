@@ -1,0 +1,63 @@
+{
+  "name": "@opencclint/core",
+  "type": "module",
+  "version": "2.0.4",
+  "description": "Core of Opencclint",
+  "author": "brokenbonesdd@gmail.com",
+  "license": "MIT",
+  "homepage": "https://github.com/hddhyq/opencclint#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hddhyq/opencclint.git"
+  },
+  "bugs": "https://github.com/hddhyq/opencclint/issues",
+  "keywords": [
+    "opencclint"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./types": {
+      "types": "./dist/index.d.mts"
+    },
+    "./dist/*": "./dist/*",
+    "./*": "./dist/*"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "typesVersions": {
+    "*": {
+      "types": [
+        "./dist/index.d.mts"
+      ],
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "defu": "^6.1.4",
+    "ignore": "^5.3.1",
+    "import-meta-resolve": "^4.1.0",
+    "magic-string": "^0.30.10",
+    "opencc-js": "^1.0.5",
+    "unconfig": "^0.3.13"
+  },
+  "devDependencies": {
+    "opencclint-config": "^0.0.6"
+  }
+}
