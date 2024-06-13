@@ -1,7 +1,2 @@
 packages:
-  - playground
-  - docs
   - packages/*
-  - examples/*
-  - packages/core/*
-  - packages/cli/*
