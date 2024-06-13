@@ -59,5 +59,8 @@
   },
   "devDependencies": {
     "opencclint-config": "^0.0.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
