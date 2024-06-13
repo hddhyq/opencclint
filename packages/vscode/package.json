@@ -1,0 +1,176 @@
+{
+  "publisher": "brokenbonesdd",
+  "name": "opencclint",
+  "displayName": "opencclint",
+  "version": "2.0.4",
+  "private": true,
+  "packageManager": "pnpm@8.10.5",
+  "description": "使用 opencc 转换繁简体, 保存自动格式化",
+  "author": "brokenbonsdd <brokenbonsdd@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/hddhyq/vscode-opencclint#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hddhyq/vscode-opencclint"
+  },
+  "bugs": {
+    "url": "https://github.com/hddhyq/vscode-opencclint/issues"
+  },
+  "keywords": [
+    "chinese",
+    "opencc",
+    "opencclint",
+    "translation",
+    "traditional",
+    "simplified",
+    "taiwan",
+    "hong kong",
+    "繁",
+    "繁体",
+    "简",
+    "简体",
+    "繁简体"
+  ],
+  "categories": [
+    "Formatters"
+  ],
+  "main": "./dist/index.js",
+  "icon": "res/logo.png",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "vscode": "^1.83.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "opencclint.translateFile",
+        "title": "OpenccLint: Translate File"
+      },
+      {
+        "command": "opencclint.translateFileRevert",
+        "title": "OpenccLint: Translate File Revert"
+      },
+      {
+        "command": "opencclint.translateSelection",
+        "title": "OpenccLint: Translate Selection"
+      },
+      {
+        "command": "opencclint.translateSelectionRevert",
+        "title": "OpenccLint: Translate Selection Revert"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "opencclint.translateFile",
+        "key": "ctrl+alt+o",
+        "mac": "ctrl+cmd+o"
+      },
+      {
+        "command": "opencclint.translateFileRevert",
+        "key": "ctrl+alt+shift+o",
+        "mac": "ctrl+cmd+shift+o"
+      },
+      {
+        "command": "opencclint.translateSelection",
+        "key": "ctrl+alt+p",
+        "mac": "ctrl+cmd+p"
+      },
+      {
+        "command": "opencclint.translateSelectionRevert",
+        "key": "ctrl+alt+shift+p",
+        "mac": "ctrl+cmd+shift+p"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "opencclint",
+      "properties": {
+        "opencclint.config": {
+          "default": "",
+          "type": "string",
+          "description": "Opencclint config file."
+        },
+        "opencclint.ignoreWords": {
+          "default": "",
+          "type": "string",
+          "description": "Excluded words."
+        },
+        "opencclint.exclude": {
+          "default": "",
+          "type": "string",
+          "description": "Ignored patterns."
+        },
+        "opencclint.converterOptions": {
+          "default": "cn=>tw",
+          "type": "string",
+          "description": "Opencclint converter options."
+        },
+        "opencclint.autoFixOnSave": {
+          "default": false,
+          "type": "boolean",
+          "description": "Opencclint autoFixOnSave options."
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "when": "!editorHasSelection",
+          "command": "opencclint.translateFile",
+          "group": "7_modification"
+        },
+        {
+          "when": "!editorHasSelection",
+          "command": "opencclint.translateFileRevert",
+          "group": "7_modification"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "opencclint.translateSelection",
+          "group": "7_modification"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "opencclint.translateSelectionRevert",
+          "group": "7_modification"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --external vscode",
+    "dev": "nr build --watch",
+    "lint": "eslint .",
+    "vscode:prepublish": "nr build",
+    "publish": "vsce publish --no-dependencies",
+    "pack": "vsce package --no-dependencies",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && nr pack && nr publish"
+  },
+  "dependencies": {
+    "@opencclint/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^1.1.1",
+    "@antfu/ni": "^0.21.9",
+    "@types/node": "^20.9.0",
+    "@types/vscode": "^1.83.0",
+    "@vscode/vsce": "^2.22.0",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.53.0",
+    "esno": "^4.0.0",
+    "pnpm": "^8.10.5",
+    "rimraf": "^5.0.5",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5",
+    "unconfig": "^0.3.13",
+    "vite": "^4.5.0",
+    "vitest": "^0.34.6"
+  }
+}
