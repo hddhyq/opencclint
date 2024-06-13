@@ -78,4 +78,5 @@ dist
 .idea
 
 *.lerna_backup
+docs/.vitepress/cache/
 .npmrc
