@@ -11,14 +11,11 @@ const commentsReg = {
 }
 
 function detectLineEndingFormat(text: string) {
-  // 检测文件内容的最后两个字符
-  const lastTwoCharacters = text.slice(-2)
-
-  // 判断最后两个字符是什么，以确定行尾格式
-  if (lastTwoCharacters === '\r\n')
-    return '\r\n' // CRLF 格式
+  // 检查文本中是否包含 \r\n 换行符
+  if (text.includes('\r\n'))
+    return '\r\n' // 如果找到 \r\n，认为是 CRLF 格式
   else
-    return '\n' // LF 格式
+    return '\n' // 否则认为是 LF 格式
 }
 
 export function filterOutDisabledCode(text: string, options: {
