@@ -4,23 +4,39 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "npm: dev",
       "type": "npm",
       "script": "dev",
       "isBackground": true,
-      "presentation": {
-        "reveal": "never"
-      },
       "problemMatcher": [
         {
-          "base": "$ts-webpack-watch",
+          "owner": "typescript",
+          "source": "ts",
+          "applyTo": "closedDocuments",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "pattern": [
+            {
+              "regexp": "^(.*\\.ts)\\((\\d+),(\\d+)\\):\\s+(.*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3,
+              "message": 4
+            }
+          ],
           "background": {
             "activeOnStart": true,
-            "beginsPattern": "Build start",
-            "endsPattern": "Build success"
+            "beginsPattern": "^\\s*Starting compilation in watch mode.*",
+            "endsPattern": "^\\s*Found \\d+ errors?\\. Watching for file changes\\."
           }
         }
       ],
-      "group": "build"
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
     }
   ]
 }
