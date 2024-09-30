@@ -6,7 +6,7 @@ import {
   registerTranslateSelectionCommand,
 } from './commands'
 
-const [stopWatchSwtting, stopWatchConfig, stopWatchConfigChange] = watchConfigChange()
+const [stopWatchSetting, stopWatchConfig, stopWatchConfigChange] = watchConfigChange()
 
 export function activate(context: vscode.ExtensionContext) {
   initConfig()
@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 export function deactivate() {
-  stopWatchSwtting.dispose()
+  stopWatchSetting.dispose()
   stopWatchConfig.dispose()
   stopWatchConfigChange.dispose()
 }

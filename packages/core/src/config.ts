@@ -38,6 +38,7 @@ const defaultConfig: Config = {
   ignoreWords: [],
   exclude: [
     'opencclint.*',
+    'settings.json',
   ],
   fix: false,
 }

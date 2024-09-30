@@ -64,10 +64,19 @@ export async function initConfig() {
   }
 }
 
+let previousConfig = vscode.workspace.getConfiguration('opencclint')
+
 export function watchConfigChange() {
-  const stopWatchSwtting = vscode.workspace.onDidChangeConfiguration(async (e) => {
-    if (e.affectsConfiguration('opencclint'))
+  const configKeys = ['config', 'ignoreWords', 'exclude', 'converterOptions', 'autoFixOnSave']
+
+  const stopWatchSetting = vscode.workspace.onDidChangeConfiguration(async (e) => {
+    const newConfig = vscode.workspace.getConfiguration('opencclint')
+    const configChanged = configKeys.some(key => e.affectsConfiguration(`opencclint.${key}`) && JSON.stringify(previousConfig[key]) !== JSON.stringify(newConfig[key]))
+
+    if (configChanged) {
       await initConfig()
+      previousConfig = newConfig
+    }
   })
 
   const stopWatchConfig = vscode.workspace.onDidCreateFiles(async (e) => {
@@ -80,5 +89,5 @@ export function watchConfigChange() {
       await initConfig()
   })
 
-  return [stopWatchSwtting, stopWatchConfig, stopWatchConfigChange]
+  return [stopWatchSetting, stopWatchConfig, stopWatchConfigChange]
 }
