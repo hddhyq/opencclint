@@ -23,10 +23,14 @@
 
 ### 2. `conversion`
 
-- **类型**：`object`
+- **类型**：`{ from: cn|tw|hk|jp|t, to: cn|tw|hk|jp|t}`
 - **描述**：定义文本转换的语言方向，详细配置可参考 [opencc-js](https://github.com/nk2028/opencc-js#api)：
   - **from**：源语言设置，例如 'cn' 代表中国大陆简体中文。
   - **to**：目标语言设置，例如 'tw' 代表台湾地区繁体中文。
+
+::: tip
+定义文本转换的语言方向，详细配置可参考 [opencc-js locals](https://github.com/nk2028/opencc-js#api) 部分。
+:::
 
 ### 3. `ignoreWords`
 
