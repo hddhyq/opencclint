@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerTextEditorCommand('opencclint.translateSelectionRevert', () => registerTranslateSelectionCommand(vscode.window.activeTextEditor!, true)),
 
     // events
-    vscode.workspace.onWillSaveTextDocument(registerTranslateOnSave),
+    vscode.workspace.onDidSaveTextDocument(document => setTimeout(() => registerTranslateOnSave(document), 50)),
   )
 }
 

@@ -4,10 +4,8 @@ import { OpencclintConfig, getIsIgnored, translateCore } from '../../../core/src
 
 const ocInstance = OpencclintConfig.getInstance()
 
-export async function registerTranslateOnSave(event: vscode.TextDocumentWillSaveEvent) {
-  const { document, waitUntil } = event
-  const textEditor = vscode.window.activeTextEditor
-
+// 在文件保存后执行翻译
+export async function registerTranslateOnSave(document: vscode.TextDocument) {
   // 尝试获取工作区的根文件夹路径，如果没有工作区则为空数组
   const workspaceFolders = vscode.workspace.workspaceFolders || []
   const rootFolderPath = workspaceFolders.length > 0 ? workspaceFolders[0].uri.fsPath : null
@@ -23,23 +21,27 @@ export async function registerTranslateOnSave(event: vscode.TextDocumentWillSave
   if (!relativePath || getIsIgnored(relativePath))
     return
 
-  async function textEdit() {
-    try {
-      const fullText = document.getText()
-      const result = await translateCore(fullText, config)
-      return textEditor!.edit((editBuilder) => {
-        result.positions.forEach((position) => {
-          const range = new vscode.Range(document.positionAt(position.start), document.positionAt(position.end))
-          const replacement = result.modified.substring(position.start, position.end)
-          editBuilder.replace(range, replacement)
-        })
+  try {
+    // 获取保存后的文档内容
+    const fullText = document.getText()
+    const result = await translateCore(fullText, config)
+
+    // 如果有需要转换的内容，直接应用更改
+    if (result.positions.length > 0) {
+      // 应用更改
+      const edit = new vscode.WorkspaceEdit()
+      result.positions.forEach((position) => {
+        const range = new vscode.Range(document.positionAt(position.start), document.positionAt(position.end))
+        const replacement = result.modified.substring(position.start, position.end)
+        edit.replace(document.uri, range, replacement)
       })
-    }
-    catch (error) {
-      console.error('Failed to translate document:', error)
-      vscode.window.showErrorMessage('Failed to translate document. See console for details.')
+
+      // 直接应用编辑，不再依赖查找可见的编辑器
+      await vscode.workspace.applyEdit(edit)
     }
   }
-
-  waitUntil(textEdit())
+  catch (error) {
+    console.error('Failed to translate document:', error)
+    vscode.window.showErrorMessage('Failed to translate document. See console for details.')
+  }
 }

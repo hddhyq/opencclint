@@ -26,7 +26,11 @@ fix: [#5](https://github.com/hddhyq/vscode-opencclint/issues/5) 修复 Mac keybi
 - feat: 添加 `onCommand:opencclint.translateFileRevert` 撤销当前文件繁简体转换
 - feat: 添加 `onCommand:opencclint.translateSelectionRevert` 撤销当前选中文本繁简体转换
 
-### 2.0.5(2024-05-16)
+## 2.0.5(2024-05-16)
 
 - feat: 支持识别禁用转换识别。(opencclint-disabled等)
 - chore: 重构代码。
+
+## 2.0.8(2025-07-07)
+
+- fix: 修复在Cursor中自动保存转换功能，替换保存时机，改为在保存后150ms执行。
