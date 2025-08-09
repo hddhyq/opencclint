@@ -6,6 +6,7 @@ interface Position {
   end: number
   line: number
   column: number
+  replacement: string // 添加实际的替换内容
 }
 
 // 定义 codeDiff 函数返回类型
@@ -24,15 +25,23 @@ export function codeDiff(original: string, modified: string): CodeDiffResult {
 
   // 从差异结果中提取变化的位置
   for (const diff of diffs) {
-    const key = diff.modifiedLength ? 'modified' : 'original'
-    const positionStart = diff[`${key}Start`]
-    const positionEnd = positionStart + diff[`${key}Length`]
+    // 只处理有修改的差异（跳过相同的部分）
+    if (diff.modifiedLength > 0 || diff.originalLength > 0) {
+      const originalStart = diff.originalStart
+      const originalEnd = originalStart + diff.originalLength
+      const modifiedStart = diff.modifiedStart
+      const modifiedEnd = modifiedStart + diff.modifiedLength
 
-    positions.push({
-      start: positionStart,
-      end: positionEnd,
-      ...getPosition(original, positionStart),
-    })
+      // 提取实际的替换内容
+      const replacement = modified.substring(modifiedStart, modifiedEnd)
+
+      positions.push({
+        start: originalStart,
+        end: originalEnd,
+        replacement,
+        ...getPosition(original, originalStart),
+      })
+    }
   }
 
   // 返回原始字符串、修改后的字符串以及变化位置

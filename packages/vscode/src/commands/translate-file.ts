@@ -24,8 +24,7 @@ export async function registerTranslateFileCommand(textEditor: vscode.TextEditor
     await textEditor.edit((editBuilder) => {
       result.positions.forEach((position) => {
         const range = new vscode.Range(document.positionAt(position.start), document.positionAt(position.end))
-        const replacement = result.modified.substring(position.start, position.end)
-        editBuilder.replace(range, replacement)
+        editBuilder.replace(range, position.replacement)
       })
     })
   }

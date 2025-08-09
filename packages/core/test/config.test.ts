@@ -6,7 +6,7 @@ const rootDir = resolve(__dirname, 'suites')
 const basicConfig = {
   conversion: { from: 'cn', to: 'tw' },
   ignoreWords: ['台'],
-  exclude: ['dist', 'opencclint.*'],
+  exclude: ['dist', 'opencclint.*', 'settings.json'],
   fix: false,
 }
 
