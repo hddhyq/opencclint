@@ -1,7 +1,7 @@
 {
   "name": "@opencclint/core",
   "type": "module",
-  "version": "2.0.4",
+  "version": "2.0.9",
   "description": "Core of Opencclint",
   "author": "brokenbonesdd@gmail.com",
   "license": "MIT",
