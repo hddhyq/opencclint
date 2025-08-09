@@ -16,7 +16,7 @@ export async function applyTranslationFixes(result: TranslateResult) {
       // 逆序处理每个位置，以避免影响后续替换的索引
       const sortedPositions = diff.positions.sort((a, b) => b.start - a.start)
       for (const position of sortedPositions)
-        s.update(position.start, position.end, diff.modified.substring(position.start, position.end))
+        s.update(position.start, position.end, position.replacement)
 
       // 将修改后的内容写回文件
       await fs.writeFile(diff.file, s.toString(), 'utf8')

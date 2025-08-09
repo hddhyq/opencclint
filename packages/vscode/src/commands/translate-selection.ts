@@ -30,8 +30,7 @@ export async function registerTranslateSelectionCommand(textEditor: vscode.TextE
           document.positionAt(selectionStart + position.start),
           document.positionAt(selectionStart + position.end),
         )
-        const replacement = result.modified.substring(position.start, position.end)
-        editBuilder.replace(range, replacement)
+        editBuilder.replace(range, position.replacement)
       })
     })
   }

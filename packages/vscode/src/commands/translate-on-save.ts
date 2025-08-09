@@ -32,8 +32,7 @@ export async function registerTranslateOnSave(document: vscode.TextDocument) {
       const edit = new vscode.WorkspaceEdit()
       result.positions.forEach((position) => {
         const range = new vscode.Range(document.positionAt(position.start), document.positionAt(position.end))
-        const replacement = result.modified.substring(position.start, position.end)
-        edit.replace(document.uri, range, replacement)
+        edit.replace(document.uri, range, position.replacement)
       })
 
       // 直接应用编辑，不再依赖查找可见的编辑器

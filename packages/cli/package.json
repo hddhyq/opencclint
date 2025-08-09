@@ -1,7 +1,7 @@
 {
   "name": "@opencclint/cli",
   "type": "module",
-  "version": "2.0.4",
+  "version": "2.0.9",
   "description": "opencclint in the command line",
   "author": "brokenbonesdd@gmail.com",
   "license": "MIT",

@@ -34,3 +34,9 @@ fix: [#5](https://github.com/hddhyq/vscode-opencclint/issues/5) 修复 Mac keybi
 ## 2.0.8(2025-07-07)
 
 - fix: 修复在Cursor中自动保存转换功能，替换保存时机，改为在保存后150ms执行。
+
+## 2.0.9(2025-08-09)
+
+- refactor: 重构代码差异检测逻辑，在Position接口中添加replacement字段
+- perf: 优化文本替换性能，直接使用预计算的replacement内容而不是从修改后的字符串中提取
+- fix: 改进translate命令的替换逻辑，提高准确性和效率

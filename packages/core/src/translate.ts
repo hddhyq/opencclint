@@ -16,6 +16,7 @@ export interface TranslateResult {
       end: number
       line: number
       column: number
+      replacement: string
     }[]
   }[]
   errorCount: number
